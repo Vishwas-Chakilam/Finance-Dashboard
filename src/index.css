@@ -1,0 +1,191 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 20% 97%;
+    --foreground: 220 25% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 25% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 25% 10%;
+    --primary: 220 70% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 15% 93%;
+    --secondary-foreground: 220 25% 20%;
+    --muted: 220 15% 93%;
+    --muted-foreground: 220 10% 46%;
+    --accent: 160 60% 45%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 15% 90%;
+    --input: 220 15% 90%;
+    --ring: 220 70% 50%;
+    --radius: 0.75rem;
+    --success: 160 60% 45%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+    --info: 220 70% 50%;
+    --info-foreground: 0 0% 100%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 280 60% 55%;
+    --chart-4: 38 92% 50%;
+    --chart-5: 0 72% 51%;
+    --chart-6: 190 70% 50%;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222 30% 8%;
+    --foreground: 220 15% 90%;
+    --card: 222 25% 12%;
+    --card-foreground: 220 15% 90%;
+    --popover: 222 25% 12%;
+    --popover-foreground: 220 15% 90%;
+    --primary: 220 70% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 222 20% 18%;
+    --secondary-foreground: 220 15% 85%;
+    --muted: 222 20% 18%;
+    --muted-foreground: 220 10% 55%;
+    --accent: 160 55% 40%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62% 40%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 222 20% 20%;
+    --input: 222 20% 20%;
+    --ring: 220 70% 55%;
+    --success: 160 55% 40%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 80% 50%;
+    --warning-foreground: 0 0% 100%;
+    --info: 220 70% 55%;
+    --info-foreground: 0 0% 100%;
+    --chart-1: 220 70% 55%;
+    --chart-2: 160 55% 40%;
+    --chart-3: 280 55% 55%;
+    --chart-4: 38 80% 50%;
+    --chart-5: 0 62% 50%;
+    --chart-6: 190 65% 50%;
+    --sidebar-background: 222 25% 10%;
+    --sidebar-foreground: 220 15% 85%;
+    --sidebar-primary: 220 70% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 222 20% 16%;
+    --sidebar-accent-foreground: 220 15% 85%;
+    --sidebar-border: 222 20% 18%;
+    --sidebar-ring: 220 70% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--primary) / 0.4) hsl(var(--muted));
+  }
+
+  *::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+    border-radius: 9999px;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary) / 0.35);
+    border-radius: 9999px;
+  }
+
+  *::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary) / 0.55);
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  .app-ui button,
+  .app-ui a,
+  .app-ui input,
+  .app-ui textarea,
+  .app-ui [role="button"],
+  .app-ui [data-radix-collection-item] {
+    transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease, transform 180ms ease, box-shadow 180ms ease, opacity 180ms ease;
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.4s ease-out;
+  }
+  .animate-slide-up {
+    animation: slideUp 0.4s ease-out;
+  }
+
+  /* Thin custom scrollbar: hides default fat track, uses theme colors */
+  .scrollbar-thin-custom {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--primary) / 0.4) hsl(var(--muted));
+  }
+
+  .scrollbar-thin-custom::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .scrollbar-thin-custom::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+    border-radius: 9999px;
+  }
+
+  .scrollbar-thin-custom::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary) / 0.35);
+    border-radius: 9999px;
+  }
+
+  .scrollbar-thin-custom::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary) / 0.55);
+  }
+
+  .page-enter {
+    animation: pageEnter 260ms ease-out;
+  }
+
+  .card-soft-hover {
+    transition: transform 180ms ease, box-shadow 180ms ease;
+  }
+
+  .card-soft-hover:hover {
+    transform: translateY(-1px);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pageEnter {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
